@@ -10,7 +10,7 @@ public class CepMother {
     }
 
     public static CepResponse getEnderecoByAnotherCep() {
-        return new CepResponse("12345-678", "Avenida São Gabriel",
+        return new CepResponse("1234-000", "Avenida São Gabriel",
                 "Jardim São Gabriel", "Jacareí", "SP");
     }
 
