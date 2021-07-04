@@ -1,6 +1,8 @@
 package com.br.desafio.cep;
 
 import com.br.desafio.exception.RestException;
+import com.br.desafio.exception.Validator;
+import com.br.desafio.exception.ValidatorException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -15,25 +17,9 @@ public class CepService {
 
     public ResponseEntity<CepResponse> getEnderecoBy(String cep) {
         try {
-            cep = cep.replace("-", "");
+            valida(new CepValidator(), cep);
 
-            final int tamanhoCep = 8;
-
-            if (cep.isBlank() || cep.length() != 8)
-                throw new RestException("CEP inválido.", HttpStatus.BAD_REQUEST);
-
-            int posicao = cep.length() - 1;
-
-            StringBuilder builder = new StringBuilder();
-            builder.append(cep);
-
-            while (posicao >= 0 && restTemplate.getForObject(this.montarPath(builder.toString()),
-                    CepRequest.class).getCep() == null) {
-                builder.setCharAt(posicao, '0');
-                posicao--;
-            }
-
-            if (posicao == -1) throw new RestException("CEP não encontrado.", HttpStatus.BAD_REQUEST);
+            StringBuilder builder = buscaCep(cep);
 
             return restTemplate.getForEntity(this.montarPath(builder.toString()), CepResponse.class);
 
@@ -49,5 +35,25 @@ public class CepService {
 
     private String montarPath(String sufixo) {
         return String.format("https://viacep.com.br/ws/%s/json/", sufixo);
+    }
+
+    private <T> void valida(Validator<T> validator, T object) throws ValidatorException {
+        validator.valida(object);
+    }
+
+    private StringBuilder buscaCep(String cep) {
+        int posicao = cep.length() - 1;
+
+        StringBuilder builder = new StringBuilder();
+        builder.append(cep);
+
+        while (posicao >= 0 && restTemplate.getForObject(this.montarPath(builder.toString()),
+                CepRequest.class).getCep() == null) {
+            builder.setCharAt(posicao, '0');
+            posicao--;
+        }
+
+        if (posicao == -1) throw new RestException("CEP não encontrado.", HttpStatus.BAD_REQUEST);
+        return builder;
     }
 }
