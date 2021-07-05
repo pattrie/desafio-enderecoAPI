@@ -35,6 +35,7 @@ checkout deve validar e retornar o endereço completo.
 <div id="swagger">
   <h3> Execução no Swagger :arrow_forward:  </h3>
 </div>
+
 - Execute o projeto;
 - Abra o Swagger UI: http://localhost:8080/swagger-ui.html
 
