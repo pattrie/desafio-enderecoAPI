@@ -9,7 +9,6 @@ public class CepValidator implements Validator<String> {
     @Override
     public void valida(String cep) {
         final int tamanhoCep = 8;
-
         if (cep.isBlank() || cep.length() != 8)
             throw new RestException("CEP inválido.", HttpStatus.BAD_REQUEST);
     }

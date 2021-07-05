@@ -1,6 +1,5 @@
 package com.br.desafio.endereco;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,25 +14,17 @@ import javax.validation.constraints.NotBlank;
 public class EnderecoClienteDto {
 
     private String id;
-
     @NotBlank(message = "{value.not.blank}")
     private String cep;
-
     @NotBlank(message = "{value.not.blank}")
     private String logradouro;
-
     @NotBlank(message = "{value.not.blank}")
     private String bairro;
-
     @NotBlank(message = "{value.not.blank}")
     private String localidade;
-
     @NotBlank(message = "{value.not.blank}")
     private String uf;
-
     @NotBlank(message = "{value.not.blank}")
     private String numero;
-
     private String complemento;
-
 }

@@ -17,17 +17,12 @@ public class CepResponse {
 
     @ApiModelProperty(notes = "Número do CEP", example = "12345-678")
     private String cep;
-
     @ApiModelProperty(notes = "Logradouro", example = "Rua dos Aventureiros")
     private String logradouro;
-
     @ApiModelProperty(notes = "Bairro", example = "Olímpico")
     private String bairro;
-
     @ApiModelProperty(notes = "Cidade", example = "São Paulo")
     private String localidade;
-
     @ApiModelProperty(notes = "Estado", example = "SP")
     private String uf;
-
 }

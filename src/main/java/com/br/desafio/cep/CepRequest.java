@@ -24,5 +24,4 @@ public class CepRequest {
     @Max(value = 9, message = "{value.max}")
     @Min(value = 8, message = "{value.min}")
     private String cep;
-
 }

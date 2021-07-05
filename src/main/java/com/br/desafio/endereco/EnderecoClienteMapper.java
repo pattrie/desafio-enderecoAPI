@@ -5,6 +5,5 @@ import org.mapstruct.Mapper;
 public interface EnderecoClienteMapper {
 
     EnderecoClienteDto toEnderecoDto(EnderecoClienteEntity endereco);
-
     EnderecoClienteEntity toEndereco(EnderecoClienteDto endereco);
 }

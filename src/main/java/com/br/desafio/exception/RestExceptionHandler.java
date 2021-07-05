@@ -41,5 +41,4 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     DefaultError error = new DefaultError(e.getHttpStatus().value(), e.getMessage());
     return new ResponseEntity(error, e.getHttpStatus());
   }
-
 }

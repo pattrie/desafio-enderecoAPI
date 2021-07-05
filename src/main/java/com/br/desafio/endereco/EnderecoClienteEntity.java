@@ -22,5 +22,4 @@ public class EnderecoClienteEntity {
     private String uf;
     private String numero;
     private String complemento;
-
 }

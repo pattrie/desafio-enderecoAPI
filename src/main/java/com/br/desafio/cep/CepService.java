@@ -17,6 +17,7 @@ public class CepService {
 
     public ResponseEntity<CepResponse> getEnderecoBy(String cep) {
         try {
+            cep = cep.replace("-", "");
             valida(new CepValidator(), cep);
 
             StringBuilder builder = buscaCep(cep);
