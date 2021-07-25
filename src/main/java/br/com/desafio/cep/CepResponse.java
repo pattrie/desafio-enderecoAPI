@@ -1,4 +1,4 @@
-package com.br.desafio.cep;
+package br.com.desafio.cep;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

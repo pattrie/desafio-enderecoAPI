@@ -1,7 +1,7 @@
-package com.br.desafio.mother;
+package br.com.desafio.mother;
 
-import com.br.desafio.cep.CepRequest;
-import com.br.desafio.cep.CepResponse;
+import br.com.desafio.cep.CepRequest;
+import br.com.desafio.cep.CepResponse;
 
 public class CepMother {
     public static CepResponse getEnderecoByCep() {

@@ -1,4 +1,4 @@
-package com.br.desafio.exception;
+package br.com.desafio.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

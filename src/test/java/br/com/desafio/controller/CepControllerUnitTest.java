@@ -1,6 +1,10 @@
-package com.br.desafio.controller;
+package br.com.desafio.controller;
 
-import com.br.desafio.cep.*;
+import br.com.desafio.cep.CepController;
+import br.com.desafio.cep.CepRequest;
+import br.com.desafio.cep.CepResponse;
+import br.com.desafio.cep.CepService;
+import br.com.desafio.mother.CepMother;
 import com.google.gson.Gson;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +15,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static com.br.desafio.mother.CepMother.*;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -34,8 +37,8 @@ public class CepControllerUnitTest {
 
     @Test
     public void givenAValidCepNumberWhenGetEnderecoByThenReturnEndereco() throws Exception {
-        CepRequest cepRequest = getCep();
-        CepResponse cepResponse = getEnderecoByCep();
+        CepRequest cepRequest = CepMother.getCep();
+        CepResponse cepResponse = CepMother.getEnderecoByCep();
 
         given(cepService.getEnderecoBy("01001-000"))
                 .willReturn(new ResponseEntity<>(cepResponse, HttpStatus.OK));
@@ -59,7 +62,7 @@ public class CepControllerUnitTest {
 
     @Test
     public void givenANonExistentCepNumberWhenGetEnderecoByThenReturnBadRequest() throws Exception {
-        CepRequest cepRequest = getCep();
+        CepRequest cepRequest = CepMother.getCep();
         cepRequest.setCep("00000-000");
 
         given(cepService.getEnderecoBy("00000-000"))
@@ -79,9 +82,9 @@ public class CepControllerUnitTest {
 
     @Test
     public void givenAMutableCepNumberWhenGetEnderecoByThenReturnAnotherCep() throws Exception {
-        CepRequest cepRequest = getCep();
+        CepRequest cepRequest = CepMother.getCep();
         cepRequest.setCep("12345-678");
-        CepResponse anotherCep = getEnderecoByAnotherCep();
+        CepResponse anotherCep = CepMother.getEnderecoByAnotherCep();
 
         given(cepService.getEnderecoBy("12345-678")).willReturn(
                 new ResponseEntity<>(anotherCep, HttpStatus.OK));
@@ -105,7 +108,7 @@ public class CepControllerUnitTest {
 
     @Test
     public void givenAEmptyCepNumberWhenGetEnderecoByThenReturnBadRequest() throws Exception {
-        CepRequest cepRequest = getCep();
+        CepRequest cepRequest = CepMother.getCep();
         cepRequest.setCep(" ");
 
         given(cepService.getEnderecoBy(" ")).willReturn(
@@ -125,7 +128,7 @@ public class CepControllerUnitTest {
 
     @Test
     public void givenACepSizeDifferentEightWhenGetEnderecoByThenReturnBadRequest() throws Exception {
-        CepRequest cepRequest = getCep();
+        CepRequest cepRequest = CepMother.getCep();
         cepRequest.setCep("99999-9999");
 
         given(cepService.getEnderecoBy("99999-9999"))

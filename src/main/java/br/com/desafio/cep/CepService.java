@@ -1,8 +1,8 @@
-package com.br.desafio.cep;
+package br.com.desafio.cep;
 
-import com.br.desafio.exception.RestException;
-import com.br.desafio.exception.Validator;
-import com.br.desafio.exception.ValidatorException;
+import br.com.desafio.exception.ValidatorException;
+import br.com.desafio.exception.RestException;
+import br.com.desafio.exception.Validator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;

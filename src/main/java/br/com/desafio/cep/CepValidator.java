@@ -1,7 +1,7 @@
-package com.br.desafio.cep;
+package br.com.desafio.cep;
 
-import com.br.desafio.exception.RestException;
-import com.br.desafio.exception.Validator;
+import br.com.desafio.exception.RestException;
+import br.com.desafio.exception.Validator;
 import org.springframework.http.HttpStatus;
 
 public class CepValidator implements Validator<String> {

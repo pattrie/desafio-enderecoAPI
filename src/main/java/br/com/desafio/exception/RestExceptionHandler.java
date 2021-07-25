@@ -1,4 +1,4 @@
-package com.br.desafio.exception;
+package br.com.desafio.exception;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

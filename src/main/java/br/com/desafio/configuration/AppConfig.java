@@ -1,4 +1,4 @@
-package com.br.desafio.configuration;
+package br.com.desafio.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
