@@ -18,7 +18,7 @@ public class SwaggerConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.br.desafio.cep"))
+                .apis(RequestHandlerSelectors.basePackage("br.com.desafio.cep"))
                 .paths(PathSelectors.ant("/api/*/*"))
                 .build()
                 .apiInfo(metaInfo());
