@@ -39,7 +39,7 @@ checkout deve validar e retornar o endereço completo.
 - Execute o projeto;
 - Abra o Swagger UI: http://localhost:8080/swagger-ui.html
 
-#### :white_check_mark: Busca o endereço
+#### :dart: Busca o endereço
 Input: GET:"/api/cep/{cep}"
  ```bash
 {
@@ -56,17 +56,17 @@ Input: GET:"/api/cep/{cep}"
 </div>
 <p>São 6 cénarios:</p>
 
-[:heavy_check_mark:] **givenAValidCepNumberWhenGetEnderecoByThenReturnEndereco** -> Dado um CEP válido retorna o endereço correspondente;
+:white_check_mark: **givenAValidCepNumberWhenGetEnderecoByThenReturnEndereco** → Dado um CEP válido retorna o endereço correspondente;
 
-[:heavy_check_mark:] **givenANonExistentCepNumberWhenGetEnderecoByThenReturnBadRequest** -> Dado um CEP inexistente retorna o código HTTP 400 (_Bad Request_);
+:white_check_mark: **givenANonExistentCepNumberWhenGetEnderecoByThenReturnBadRequest** → Dado um CEP inexistente retorna o código HTTP 400 (_Bad Request_);
 
-[:heavy_check_mark:] **givenAMutableCepNumberWhenGetEnderecoByThenReturnAnotherCep** -> Dado um CEP válido que não exista o endereço, deve substituir um dígito da direita para a esquerda por zero até que o endereço seja localizado (Exemplo: Dado 22333999 tentar com 22333990, 22333900 etc);
+:white_check_mark: **givenAMutableCepNumberWhenGetEnderecoByThenReturnAnotherCep** → Dado um CEP válido que não exista o endereço, deve substituir um dígito da direita para a esquerda por zero até que o endereço seja localizado (Exemplo: Dado 22333999 tentar com 22333990, 22333900 etc);
 
-[:heavy_check_mark:] **givenAEmptyCepNumberWhenGetEnderecoByThenReturnBadRequest** -> Dado um cep vazio retorna o código HTTP 400 (_Bad Request_);
+:white_check_mark: **givenAEmptyCepNumberWhenGetEnderecoByThenReturnBadRequest** → Dado um cep vazio retorna o código HTTP 400 (_Bad Request_);
 
-[:heavy_check_mark:] **givenACepSizeDifferentEightWhenGetEnderecoByThenReturnBadRequest** -> Dado um cep com tamanho diferente de 8 caracteres retorna o código HTTP 400 (_Bad Request_);
+:white_check_mark: **givenACepSizeDifferentEightWhenGetEnderecoByThenReturnBadRequest** → Dado um cep com tamanho diferente de 8 caracteres retorna o código HTTP 400 (_Bad Request_);
 
-[:heavy_check_mark:] **givenAAlphanumericCepWhenGetEnderecoByThenReturnBadRequest** -> Dado um cep alfanúmerico (com caracteres alfabéticos) retorna o código HTTP 400 (_Bad Request_).
+:white_check_mark: **givenAAlphanumericCepWhenGetEnderecoByThenReturnBadRequest** → Dado um cep alfanúmerico (com caracteres alfabéticos) retorna o código HTTP 400 (_Bad Request_).
 
 <div id="conclusion">
   <h3> Conclusão :speech_balloon: </h3>
